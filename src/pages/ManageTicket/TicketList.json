@@ -1,0 +1,152 @@
+[
+  {
+    "key": "1",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "2",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Hết hạn",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "3",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Chưa sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "4",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "5",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "6",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "7",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "8",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "9",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "10",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "11",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "12",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "13",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "14",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  },
+  {
+    "key": "15",
+    "bookingCode": "123",
+    "soVe": "ALT20210501",
+    "tenSuKien": "Hội chợ triễn lãm tiêu dùng 2021",
+    "tinhTrang": "Đã sử dụng",
+    "ngaySuDung": "14/04/2022",
+    "ngayXuatVe": "12/04/2022",
+    "congCheckIn": "Cổng 1"
+  }
+]

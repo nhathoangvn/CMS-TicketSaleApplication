@@ -1,0 +1,72 @@
+.ticket__change {
+  .ticket__change-left {
+    height: 863px;
+    background: #ffffff;
+    border-radius: 24px;
+    .ticket__change-title {
+      margin: 24px 0 22px 24px;
+      span {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 54px;
+        color: #1e0d03;
+      }
+    }
+    .ticket__change-filter {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 24px;
+      padding-bottom: 24px;
+      .btn {
+        margin-right: 24px;
+        width: 174px;
+        height: 48px;
+        background: #ff993c;
+        border-radius: 8px;
+        span {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 26px;
+          color: #ffffff;
+        }
+      }
+      .ant-input-affix-wrapper {
+        width: 446px;
+        height: 48px;
+        background: #f7f7f8;
+        border-radius: 8px;
+        .ant-input {
+          background: #f7f7f8;
+        }
+      }
+    }
+    .ticket__change-table {
+      padding: 0 24px;
+      .ant-table {
+        border-radius: 8px !important;
+      }
+      .ant-table-thead > tr > th {
+        background: #f1f4f8 !important;
+      }
+      .ant-table-tbody > tr > td {
+        height: 5px;
+        padding: 4px;
+      }
+      .ant-table-content {
+        tr {
+          height: 48px !important;
+          .ant-table-cell {
+            height: 48px !important;
+            padding: 0 !important;
+          }
+          &:nth-child(even) {
+            background-color: #f7f8fb !important;
+          }
+        }
+      }
+      .ant-table-pagination-right {
+        justify-content: center !important;
+      }
+    }
+  }
+}

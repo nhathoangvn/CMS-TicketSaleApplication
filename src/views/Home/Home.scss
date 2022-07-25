@@ -1,0 +1,86 @@
+@import "../../shared/assests/scss/variable";
+.ant-menu-item-selected a {
+  color: #fff !important;
+}
+.home__page {
+  height: 100vh;
+  .ant-layout-header {
+    padding: 0 !important;
+  }
+  .ant-layout-content {
+    background-color: $primary-color-background;
+  }
+  .header {
+    background-color: $primary-color-background;
+    height: 85px;
+    .header-container {
+      height: 85px;
+      .ant-input {
+        background: #e5e5e5;
+        color: black;
+      }
+      .ant-input::placeholder {
+        color: #1e0d03 !important;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .ant-input-affix-wrapper:focus,
+      .ant-input-affix-wrapper-focused {
+        border-color: $primary-color-background;
+        box-shadow: none;
+        border-right-width: 1px;
+        outline: 0;
+      }
+      .ant-input-affix-wrapper:hover {
+        border-color: $primary-color-background;
+        border-right-width: 1px;
+      }
+      .ant-input-affix-wrapper {
+        background: #e5e5e5;
+        width: 470px;
+        height: 48px;
+        border-radius: 12px;
+      }
+    }
+  }
+  .sider__menu {
+    background-color: $primary-color-background;
+    .sider__menu-container {
+      .sider__menu-logo {
+        padding: 17px 0 59px 33px;
+      }
+      .sider__menu-menu {
+        padding-left: 33px;
+        .ant-menu {
+          background-color: $primary-color-background;
+        }
+        .ant-menu-item {
+          display: flex;
+          align-items: center;
+          position: relative;
+          overflow: visible;
+          width: 252px;
+          height: 56px;
+          background-color: $primary-color-background;
+        }
+        .ant-menu-inline .ant-menu-item::after {
+          border: none !important;
+        }
+        .ant-menu-title-content {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 26px;
+        }
+
+        .ant-menu > .ant-menu-item-selected {
+          background-color: $primary-color-menu;
+          color: $primary-color-text-menu-selected;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,186 @@
+.tooltip {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1e0d03;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.ant-tooltip-inner {
+  width: 159px;
+  height: 56px;
+  background: #ffd2a8;
+  border-radius: 8px;
+  .ant-tooltip-arrow-content {
+    background: #ffd2a8;
+    color: #ffd2a8;
+  }
+}
+.ant-tooltip-arrow-content::before {
+  background: #ffd2a8;
+}
+.ant-tooltip-arrow {
+  span {
+    background-color: #ffd2a8;
+  }
+}
+
+.modal__filter-ticket {
+  .ant-modal-content {
+    width: 634px;
+    height: 454px;
+    background: #ffffff;
+    border-radius: 16px;
+  }
+  .modal__filter-ticket-container {
+    .title {
+      padding-bottom: 26px;
+      display: flex;
+      justify-content: center;
+      span {
+        font-weight: 700;
+        font-size: 24px;
+        color: #1e0d03;
+      }
+    }
+    .date-picker {
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        color: #1e0d03;
+      }
+      .anticon-calendar {
+        color: #ff993c;
+      }
+      .ant-picker {
+        width: 143px;
+        height: 40px;
+        border: 1px solid #a5a8b1;
+        border-radius: 8px;
+      }
+    }
+    .radio-status {
+      display: flex;
+      flex-direction: column;
+      .label {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        color: #1e0d03;
+      }
+    }
+    .check-box {
+      padding-top: 24px;
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      // .ant-checkbox-wrapper {
+      //   width: 180px !important;
+      // }
+      .label {
+        font-weight: 500;
+        font-size: 16px;
+        color: #1e0d03;
+      }
+
+      .check-box-item {
+        padding-bottom: 14px;
+        // .ant-checkbox-wrapper {
+        //   width: 100px !important;
+        // }
+      }
+    }
+    .btn-filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ant-btn,
+      .ant-btn-default {
+        width: 160px;
+        height: 48px;
+        border: 1px solid #ff993c;
+        border-radius: 8px;
+        span {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 26px;
+          color: #ff993c;
+        }
+      }
+    }
+  }
+}
+.ant-tag-has-color {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  height: 31px;
+}
+.manage__ticket {
+  width: 1567px;
+  background: #ffffff;
+  border-radius: 24px;
+  .manage__ticket-title {
+    padding: 12px 0 32px 24px;
+    span {
+      font-weight: 600;
+      font-size: 36px;
+      color: #1e0d03;
+    }
+  }
+  .manage__ticket-filter {
+    padding: 0 0 22px 24px;
+    .ant-input-affix-wrapper {
+      width: 446px !important;
+      height: 48px !important;
+      border-radius: 8px;
+    }
+    .ant-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 127px;
+      height: 48px;
+      border: 1px solid #ff993c;
+      border-radius: 6px;
+      color: #ff993c;
+      span {
+        padding-left: 12px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+  }
+  .manage__ticket-table {
+    padding: 0 31px 0 24px;
+    margin-bottom: 65px;
+    .ant-table {
+      border-radius: 8px !important;
+    }
+    .ant-table-thead > tr > th {
+      background: #f1f4f8 !important;
+    }
+    .ant-table-tbody > tr > td {
+      height: 5px;
+      padding: 4px;
+    }
+    .ant-table-content {
+      tr {
+        height: 48px !important;
+        .ant-table-cell {
+          height: 48px !important;
+          padding: 0 !important;
+        }
+        &:nth-child(even) {
+          background-color: #f7f8fb !important;
+        }
+      }
+    }
+    .ant-table-pagination-right {
+      justify-content: center !important;
+    }
+  }
+}
