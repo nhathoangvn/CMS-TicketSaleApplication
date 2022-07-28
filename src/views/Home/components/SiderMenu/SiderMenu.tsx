@@ -1,6 +1,6 @@
 import { Col, Menu, Row } from "antd";
 import React from "react";
-import { AiOutlineSetting } from "react-icons/ai";
+import { AiOutlineCopyrightCircle, AiOutlineSetting } from "react-icons/ai";
 import { BiBookmarkAlt, BiHomeAlt } from "react-icons/bi";
 import { HiOutlineTicket } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -27,12 +27,26 @@ const SiderMenu: React.FC = () => {
             title="Cài đặt"
             key="submenu_setting"
           >
-            <Menu.Item key="goi_dich_vu">Gói dịch vụ</Menu.Item>
+            <Menu.Item key="goi_dich_vu">
+              <Link to="/list-ticket-package">Gói dịch vụ</Link>
+            </Menu.Item>
           </Menu.SubMenu>
         </Menu>
       </Col>
-      <Col span={24} style={{ position: "fixed", bottom: 0 }}>
-        asdadasd
+      <Col
+        span={24}
+        style={{
+          position: "fixed",
+          bottom: 0,
+        }}
+      >
+        <Row
+          justify="center"
+          align="middle"
+          style={{ width: "100%", paddingLeft: "40px" }}
+        >
+          Copyright <AiOutlineCopyrightCircle /> 2020 Alta Software
+        </Row>
       </Col>
     </Row>
   );

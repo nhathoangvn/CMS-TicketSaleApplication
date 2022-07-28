@@ -6,7 +6,6 @@ import {
   DatePicker,
   Input,
   Modal,
-  Popover,
   Radio,
   Row,
   Space,
@@ -14,16 +13,33 @@ import {
   Tag,
   Tooltip,
 } from "antd";
-import React, { useState } from "react";
+import { CheckboxChangeEvent } from "antd/lib/checkbox";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FiFilter, FiMoreVertical } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { TicketCreator } from "../../redux";
+import * as XLSX from "xlsx";
+
+import {
+  ticketRemainingSelector,
+  filterByCongCheckInSelector,
+} from "../../redux/selectors/TicketSelector";
 import ModalChangeDateUseTicket from "../Modal/ModalChangeDateUseTicket";
 import "./ManageTicket.scss";
-import data from "./TicketList.json";
 type typeStatus = "Đã sử dụng" | "Hết hạn" | "Chưa sử dụng";
 const plainOptions = ["Cổng 1", "Cổng 2", "Cổng 3", "Cổng 4", "Cổng 5"];
-
+type ticket = {
+  key?: string;
+  bookingCode?: string;
+  soVe: string;
+  tenSuKien: string;
+  ngaySuDung: string;
+  ngayXuatVe?: string;
+  congCheckIn?: string;
+};
 const ManageTicket: React.FC = () => {
   const [isVisibleModalFilter, setIsVisibleModalFilter] =
     useState<boolean>(false);
@@ -31,8 +47,26 @@ const ManageTicket: React.FC = () => {
     isVisibleModalChangeDateUseTicket,
     setIsVisibleModalChangeDateUseTicket,
   ] = useState(false);
+  const [filterByStatus, setFilterByStatus] = useState<string>("all");
+  const [ticketSelected, setTicketSelected] = useState<ticket>({
+    ngaySuDung: "",
+    soVe: "",
+    tenSuKien: "",
+    bookingCode: "",
+    congCheckIn: "",
+    key: "",
+    ngayXuatVe: "",
+  });
+  const dispatch = useDispatch();
   const [disabled, setDisabled] = useState<boolean>(false);
   const [checkedList, setCheckedList] = useState<string[]>([]);
+  const { getData, search, filterByTinhTrang, filterByCongCheckIn } =
+    bindActionCreators(TicketCreator, dispatch);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const ticketList = useSelector(ticketRemainingSelector);
   function getStatusRender(status: typeStatus) {
     switch (status) {
       case "Hết hạn":
@@ -62,7 +96,9 @@ const ManageTicket: React.FC = () => {
     {
       title: "STT",
       dataIndex: "key",
-      render: (key: string) => <Row align="middle">{key}</Row>,
+      render: (key: any, record: any, index: number) => (
+        <span>{index + 1}</span>
+      ),
     },
     {
       title: "Booking code",
@@ -117,7 +153,10 @@ const ManageTicket: React.FC = () => {
                     <span className="tooltip">Sử dụng vé</span>
                     <span
                       className="tooltip"
-                      onClick={() => setIsVisibleModalChangeDateUseTicket(true)}
+                      onClick={() => {
+                        setIsVisibleModalChangeDateUseTicket(true);
+                        setTicketSelected(record);
+                      }}
                     >
                       Đổi ngày sử dụng
                     </span>
@@ -142,14 +181,32 @@ const ManageTicket: React.FC = () => {
     return orginalElement;
   }
   const handleOnClickFilter = () => {
+    setDisabled(false);
+    setFilterByStatus("all");
+    filterByCongCheckIn(ListCongCheckIn);
+    filterByTinhTrang(filterByStatus);
     setIsVisibleModalFilter(false);
   };
-  const handleOnchange = (item: any) => {
-    const list: string[] = [...checkedList];
-    setCheckedList(item.target.check ? [item.target.value, ...list] : list);
+
+  const ListCongCheckIn = new Set<string>();
+  const HandleChecked = (value: string, checked: boolean) => {
+    if (ListCongCheckIn.has(value) || !checked) {
+      ListCongCheckIn.delete(value);
+      return;
+    }
+    ListCongCheckIn.add(value);
   };
+  const handleOnchange = (item: CheckboxChangeEvent) => {
+    HandleChecked(item.target.value, item.target.checked);
+  };
+
   const handleCloseModal = () => {
     setIsVisibleModalChangeDateUseTicket(false);
+  };
+  const handleOnChangeFilterBySearchText = (
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    search(e.target.value);
   };
   return (
     <React.Fragment>
@@ -162,6 +219,7 @@ const ManageTicket: React.FC = () => {
             <Input
               suffix={<BiSearch size={20} />}
               placeholder="Tìm bằng số vé"
+              onChange={(e) => handleOnChangeFilterBySearchText(e)}
             />
             <Space>
               <Button
@@ -170,7 +228,27 @@ const ManageTicket: React.FC = () => {
               >
                 Lọc vé
               </Button>
-              <Button style={{ width: 181 }}>{`Xuất file (.csv)`}</Button>
+              <Button
+                onClick={() => {
+                  const downloadExcel = () => {
+                    const workSheet = XLSX.utils.json_to_sheet(ticketList);
+                    const workBook = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(workBook, workSheet, "baoCao");
+                    //Buffer
+                    let buf = XLSX.write(workBook, {
+                      bookType: "xlsx",
+                      type: "buffer",
+                    });
+                    //Binary string
+                    XLSX.write(workBook, { bookType: "xlsx", type: "binary" });
+                    //Downloadvs
+
+                    XLSX.writeFile(workBook, "QuanLyVe.xlsx");
+                  };
+                  downloadExcel();
+                }}
+                style={{ width: 181 }}
+              >{`Xuất file (.csv)`}</Button>
             </Space>
           </Row>
         </Col>
@@ -179,7 +257,7 @@ const ManageTicket: React.FC = () => {
             key="key"
             style={{ height: 624 }}
             columns={columns}
-            dataSource={data}
+            dataSource={ticketList}
             pagination={{ pageSize: 12, itemRender: itemPagination }}
           />
         </Col>
@@ -191,6 +269,7 @@ const ManageTicket: React.FC = () => {
           onCancel={() => setIsVisibleModalFilter(false)}
           footer={null}
           closable={false}
+          destroyOnClose={true}
         >
           <Row className="modal__filter-ticket-container">
             <Col span={24} className="title">
@@ -206,12 +285,17 @@ const ManageTicket: React.FC = () => {
             </Col>
             <Col span={24} className="radio-status">
               <span className="label">Tình trạng sử dụng</span>
-              <Radio.Group size="large" buttonStyle="solid">
+              <Radio.Group
+                size="large"
+                buttonStyle="solid"
+                defaultValue="all"
+                onChange={(e) => setFilterByStatus(e.target.value)}
+              >
                 <Space size={30}>
-                  <Radio value={1}>Tất cả</Radio>
-                  <Radio value={2}>Đã sử dụng</Radio>
-                  <Radio value={3}>Chưa sử dụng</Radio>
-                  <Radio value={4}>Hết hạn</Radio>
+                  <Radio value="all">Tất cả</Radio>
+                  <Radio value="Đã sử dụng">Đã sử dụng</Radio>
+                  <Radio value="Chưa sử dụng">Chưa sử dụng</Radio>
+                  <Radio value="Hết hạn">Hết hạn</Radio>
                 </Space>
               </Radio.Group>
             </Col>
@@ -222,9 +306,9 @@ const ManageTicket: React.FC = () => {
                   <Checkbox
                     onChange={(e) => {
                       e.target.checked ? setDisabled(true) : setDisabled(false);
-                      setCheckedList([]);
+                      ListCongCheckIn.clear();
                     }}
-                    value="Tất cả"
+                    value="all"
                   >
                     Tất cả
                   </Checkbox>
@@ -233,7 +317,7 @@ const ManageTicket: React.FC = () => {
                   <Col span={8} key={item}>
                     <Checkbox
                       onChange={(e) => {
-                        handleOnchange(e.target.value);
+                        handleOnchange(e);
                       }}
                       disabled={disabled}
                       value={item}
@@ -252,16 +336,11 @@ const ManageTicket: React.FC = () => {
       </Row>
       <Row className="modal__change__date">
         <ModalChangeDateUseTicket
+          ticket={ticketSelected}
           isVisibleShowModal={isVisibleModalChangeDateUseTicket}
           handleCloseModal={handleCloseModal}
         />
       </Row>
-      {/* <Modal
-        visible={isVisibleModalChangeDateUseTicket}
-        onCancel={() => setIsVisibleModalChangeDateUseTicket(false)}
-        footer={null}
-        closable={false}
-      ></Modal> */}
     </React.Fragment>
   );
 };

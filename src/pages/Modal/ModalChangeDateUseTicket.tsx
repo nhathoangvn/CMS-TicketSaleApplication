@@ -1,22 +1,24 @@
 import { Button, Col, DatePicker, Form, Modal, Row, Space } from "antd";
+import moment from "moment";
 import React, { MouseEventHandler, useState } from "react";
 import "./ModalChangeDateUseTicket.scss";
+const format = "DD/MM/YYYY";
 interface IModalChangeDateUseTicketProps {
-  // ticket: {
-  //   key: string;
-  //   bookingCode: string;
-  //   soVe: string;
-  //   tenSuKien: string;
-  //   ngaySuDung: string;
-  //   ngayXuatVe: string;
-  //   congCheckIn: string;
-  // };
+  ticket: {
+    key?: string;
+    bookingCode?: string;
+    soVe: string;
+    tenSuKien: string;
+    ngaySuDung: string;
+    ngayXuatVe?: string;
+    congCheckIn?: string;
+  };
   isVisibleShowModal: boolean;
   // handleChangeDate: (isVisible: boolean) => void;
   handleCloseModal: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 const ModalChangeDateUseTicket: React.FC<IModalChangeDateUseTicketProps> = ({
-  // ticket,
+  ticket,
   // handleChangeDate,
   handleCloseModal,
   isVisibleShowModal,
@@ -49,7 +51,7 @@ const ModalChangeDateUseTicket: React.FC<IModalChangeDateUseTicketProps> = ({
             <span className="label">Số vé:</span>
           </Col>
           <Col span={18}>
-            <span className="content">PKG20210502</span>
+            <span className="content">{ticket.soVe}</span>
           </Col>
           <Col span={6}>
             <span className="label">Số vé:</span>
@@ -61,14 +63,17 @@ const ModalChangeDateUseTicket: React.FC<IModalChangeDateUseTicketProps> = ({
             <span className="label">Tên sự kiện:</span>
           </Col>
           <Col span={18}>
-            <span className="content">Hội chợ triển lãm hàng tiêu dùng</span>
+            <span className="content">{ticket.tenSuKien}</span>
           </Col>
           <Col span={6}>
             <span className="label">Hạn sử dụng:</span>
           </Col>
           <Col span={18}>
             {/* <span className="content">PKG20210502</span> */}
-            <DatePicker />
+            <DatePicker
+              defaultValue={moment(ticket.ngaySuDung, format)}
+              format={format}
+            />
           </Col>
           <Col
             span={24}

@@ -1,3 +1,17 @@
+.da-doi-soat {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fd5959;
+}
+.chua-doi-soat {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #a5a8b1;
+}
 .ticket__change {
   .ticket__change-left {
     height: 863px;
@@ -28,6 +42,19 @@
           font-size: 18px;
           line-height: 26px;
           color: #ffffff;
+        }
+      }
+      .btn-export {
+        margin-right: 24px;
+        width: 181px;
+        height: 48px;
+        border: 1px solid #ff993c;
+        border-radius: 8px;
+        span {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 26px;
+          color: #ff993c;
         }
       }
       .ant-input-affix-wrapper {
@@ -66,6 +93,87 @@
       }
       .ant-table-pagination-right {
         justify-content: center !important;
+      }
+    }
+  }
+  .ticket__change-right {
+    height: 863px;
+    background: #ffffff;
+    border-radius: 24px;
+    margin-right: 32px;
+    .filter {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      .btn-filter {
+        width: 181px;
+        height: 48px;
+        border: 1px solid #ff993c;
+        border-radius: 8px;
+        span {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 26px;
+          color: #ff993c;
+        }
+      }
+    }
+    .radio {
+      display: flex;
+      flex-direction: column;
+    }
+    .title {
+      padding: 22px 0 32px 24px;
+      span {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        color: #1e0d03;
+      }
+    }
+    .label {
+      display: flex;
+      align-items: center;
+      padding: 24px 0 0 24px;
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        color: #1e0d03;
+        opacity: 0.8;
+      }
+    }
+    .label-2 {
+      padding: 24px 0 0 24px;
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        color: #1e0d03;
+        opacity: 0.8;
+      }
+    }
+    .content {
+      padding-top: 24px;
+      .ant-picker {
+        width: 192px;
+        height: 40px;
+        background: #e0e0e0;
+        border-radius: 8px;
+      }
+      .ant-picker-suffix {
+        background: #e0e0e0;
+      }
+      .anticon-calendar {
+        color: #ff993c;
+        font-size: 20px;
+      }
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #1e0d03;
+        opacity: 0.7;
       }
     }
   }
