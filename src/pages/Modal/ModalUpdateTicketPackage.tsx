@@ -75,6 +75,10 @@ const ModalUpdateTicketPackage: React.FC<IModalUpdateTicketPackageProps> = ({
       giaCombo: ticket?.giaCombo,
       slVe: ticket?.slVe,
       tinhTrang: ticket?.tinhTrang,
+      ngayApDung: moment(ticket?.ngayApDung, "DD/MM/YYYY"),
+      gioApDung: moment(ticket?.ngayApDung, "DD/MM/YYYY hh:mm:ss"),
+      ngayHetHan: moment(ticket?.ngayHetHan, "DD/MM/YYYY"),
+      gioHetHan: moment(ticket?.ngayHetHan, "DD/MM/YYYY hh:mm:ss"),
     });
   }, [ticket]);
   return (
@@ -109,51 +113,49 @@ const ModalUpdateTicketPackage: React.FC<IModalUpdateTicketPackageProps> = ({
           <Col span={12}>
             <Form.Item label="Ngày áp dụng">
               <Space>
-                <DatePicker
-                  placeholder="dd/mm/yy"
-                  format="DD/MM/YYYY"
-                  defaultValue={moment(ticket?.ngayApDung, "YYYY-MM-DD")}
-                  onChange={(date: any, dateString: string) => {
-                    setNgayApDungValue(dateString);
-                  }}
-                />
+                <Form.Item name="ngayApDung" style={{ marginBottom: 0 }}>
+                  <DatePicker
+                    placeholder="dd/mm/yy"
+                    format="DD/MM/YYYY"
+                    onChange={(date: any, dateString: string) => {
+                      setNgayApDungValue(dateString);
+                    }}
+                  />
+                </Form.Item>
 
-                <TimePicker
-                  placeholder="hh:mm:ss"
-                  defaultValue={moment(
-                    gioNgayApDungValue,
-                    "YYYY/MM/DD hh:mm:ss"
-                  )}
-                  format="hh:mm:ss"
-                  onChange={(time: any, timeString: string) => {
-                    setGioNgayApDungValue(timeString);
-                  }}
-                />
+                <Form.Item name="gioApDung" style={{ marginBottom: 0 }}>
+                  <TimePicker
+                    placeholder="hh:mm:ss"
+                    format="hh:mm:ss"
+                    onChange={(time: any, timeString: string) => {
+                      setGioNgayApDungValue(timeString);
+                    }}
+                  />
+                </Form.Item>
               </Space>
             </Form.Item>
           </Col>
           <Col span={12}>
             <Form.Item label="Ngày hết hạn">
               <Space>
-                <DatePicker
-                  placeholder="dd/mm/yy"
-                  defaultValue={moment(ticket?.ngayHetHan, "YYYY/MM/DD")}
-                  format="DD/MM/YYYY"
-                  onChange={(date: any, dateString: string) => {
-                    setNgayHetHanValue(dateString);
-                  }}
-                />
-                <TimePicker
-                  placeholder="hh:mm:ss"
-                  defaultValue={moment(
-                    ticket?.ngayHetHan,
-                    "YYYY/MM/DD hh:mm:ss"
-                  )}
-                  format="hh:mm:ss"
-                  onChange={(time: any, timeString: string) => {
-                    setGioNgayHetHanValue(timeString);
-                  }}
-                />
+                <Form.Item name="ngayHetHan" style={{ marginBottom: 0 }}>
+                  <DatePicker
+                    placeholder="dd/mm/yy"
+                    format="DD/MM/YYYY"
+                    onChange={(date: any, dateString: string) => {
+                      setNgayHetHanValue(dateString);
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item name="gioHetHan" style={{ marginBottom: 0 }}>
+                  <TimePicker
+                    placeholder="hh:mm:ss"
+                    format="hh:mm:ss"
+                    onChange={(time: any, timeString: string) => {
+                      setGioNgayHetHanValue(timeString);
+                    }}
+                  />
+                </Form.Item>
               </Space>
             </Form.Item>
           </Col>
